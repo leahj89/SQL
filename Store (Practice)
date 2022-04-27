@@ -1,0 +1,31 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, size TEXT, color TEXT, number INTEGER); 
+
+INSERT INTO store VALUES (1, "shirt", "small", "red", 2);
+INSERT INTO store VALUES (2, "shirt", "large", "red", 4); 
+INSERT INTO store VALUES (3, "dress", "small", "blue", 3); 
+INSERT INTO store VALUES (4, "dress", "medium", "red", 2); 
+INSERT INTO store VALUES (5, "dress", "large", "yellow", 1); 
+INSERT INTO store VALUES (6, "jacket", "medium", "blue", 3); 
+INSERT INTO store VALUES (7, "jacket", "small", "yellow", 3);
+SELECT * FROM store;
+
+SELECT * FROM store WHERE number >= 3 ORDER BY number; 
+
+SELECT item, CASE 
+    WHEN number <= 2 THEN "order more"
+    WHEN number >= 3 THEN "okay"
+END "order status" 
+FROM "store"
+ORDER BY item; 
+
+SELECT SUM(number)
+FROM store;
+
+SELECT number, CASE
+    WHEN item = "shirt" THEN "shirt"
+    WHEN item = "dress" THEN "dress"
+    when item = "jacket" THEN "jacket"
+END "item"
+FROM store; 
+
+SELECT * from store ORDER BY number asc;
